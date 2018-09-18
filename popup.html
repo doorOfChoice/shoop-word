@@ -1,12 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>WordShower Version</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+    <script src="vendor/jquery.min.js"></script>
+    <script src="vendor/vue.min.js" ></script>
+    <script src="js/popup.js" ></script>
   </head>
   <body>
-    <!---->
-    <div style="background-color:red;">
-        YES
+    <div class="shoop-main" id="vue-main">
+      <div>
+          <center>
+              <img src="icon.png" class="img64" alt="">
+          </center>
+      </div>
+      <div class="shoop-unit">
+        <input type="checkbox" v-model="isOpenRender" @click="openRender"> 是否开启
+      </div>
+
+      <div class="shoop-unit shoop-scroller" >
+        <h4>过滤网址</h4>
+        <button @click="appendUrl">➕添加</button>
+        <div class="filter-collections" v-for="(index, url) in urls" :key="index">
+          <input type="text" placeholder="http://*" class="filter-url" v-model="url.text">
+            <input type="checkbox" @click="activeUrl(index)" v-model="url.active">
+            <span class="filter-url-remove" @click="deleteUrl(index)">❌</span>
+        </div>
+      </div>
+
+      <div class="shoop-unit">
+        <button @click="saveConfig">保存配置</button>
+        <button @click="clearWords" style="color:red; margin-left: 20px;">清空单词缓存</button>
+      </div>
     </div>
   </body>
 </html>

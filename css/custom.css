@@ -1,3 +1,24 @@
 .shower-f {
     border: 1px solid red;
 }
+
+.shoop-main {
+    width: 200px;
+}
+
+.shoop-unit {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-right: 3px solid dodgerblue;
+    border-left: 3px solid dodgerblue;
+}
+
+.shoop-scroller {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.img64 {
+    width: 64px;
+    height: 64px;
+}
