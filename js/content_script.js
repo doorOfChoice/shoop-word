@@ -22,7 +22,7 @@ function render(data) {
     var userSettings = data.userSettings;
     var words = data.words;
     if(userSettings) {
-        var url = window.location.host;
+        var url = window.location.href;
         if(userSettings.isOpenRender) {
             for(var i = 0; i < userSettings.urls.length; ++i) {
                 var active = userSettings.urls[i].active;
@@ -30,7 +30,7 @@ function render(data) {
                 if(regexString.trim().length !== 0 && active){
                     regexString = '^' + regexString + '$';
                     var regex = new RegExp(regexString);
-                    if(regex.match(url)) {
+                    if(regex.test(url)) {
                         return;
                     }
                 }

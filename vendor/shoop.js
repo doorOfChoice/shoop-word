@@ -153,7 +153,7 @@ function conversion(text, node, clazzname, words) {
         var word = new StringBuilder();
         //填充自定义的dom节点
         var fill = function() {
-            var exist = words[word.string()];
+            var exist = words[word.string().toLowerCase()];
             if(exist)
                 buffer.append(combineNode(true));
             buffer.append(word);
@@ -214,7 +214,5 @@ function conversion(text, node, clazzname, words) {
     
     return coreRun();
 }
-
-exports.conversion = conversion;
 
 
